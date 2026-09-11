@@ -1,9 +1,4 @@
-# Skevia Software
-
-Marketing site for **Skevia Software LLC**, featuring:
-
-- **ANVIL** — Adaptive Neural Vectorized Inference Loader (bare-metal AI inference)
-- **AVE** — Adaptive Visual Expansion (upscaling technology)
+Website for **Skevia Software LLC**
 
 ## Run locally
 
