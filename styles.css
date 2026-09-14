@@ -404,6 +404,7 @@ body {
 .embed-img {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
   aspect-ratio: 1;
   object-fit: cover;
@@ -417,13 +418,21 @@ body {
 .product-ave .embed,
 .product-ave .embed-sheet {
   height: auto;
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  aspect-ratio: 16 / 9;
 }
 
 .product-ave .embed-img {
-  aspect-ratio: auto;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
-  max-height: min(42rem, 78vh);
+  max-width: none;
+  height: 100%;
+  aspect-ratio: auto;
+  max-height: none;
+  min-width: 0;
   min-height: 0;
   object-fit: contain;
   object-position: center;
@@ -443,15 +452,11 @@ body {
     );
 }
 
-.embed-steel {
-  background: var(--steel);
-}
-
-.embed-steel .embed-img {
-  object-position: 50% 54%;
-  object-fit: cover;
+.product-anvil .embed-img {
   aspect-ratio: auto;
-  height: 100%;
+  object-fit: contain;
+  object-position: center left;
+  mix-blend-mode: multiply;
 }
 
 .sight-wrap figcaption {
@@ -477,65 +482,14 @@ body {
 }
 
 .product-anvil {
-  --bleed: calc(var(--pad-x) - var(--frame) - 5px);
-  isolation: isolate;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  gap: 0;
-  width: auto;
-  max-width: none;
-  margin: 0 calc(var(--bleed) * -1);
-  padding: 0;
-  min-height: 0;
-  aspect-ratio: 16 / 9;
-  background: var(--steel);
-  color: var(--steel-type);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
-}
-
-.product-anvil .product-figure,
-.product-anvil .product-copy {
-  grid-area: 1 / 1;
+  grid-template-columns: minmax(16rem, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
 }
 
 .product-anvil .product-copy {
-  z-index: 2;
-  justify-self: end;
-  align-self: stretch;
-  width: min(42rem, 48%);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(1.5rem, 4vh, 3rem) calc(var(--bleed) + 0.6rem)
-    clamp(1.5rem, 4vh, 3rem) 1.25rem;
-  background: linear-gradient(
-    270deg,
-    var(--steel) 0%,
-    rgba(36, 29, 23, 0.94) 58%,
-    rgba(36, 29, 23, 0) 100%
-  );
-}
-
-.product-anvil .product-fig,
-.product-anvil .product-expand {
-  color: var(--steel-muted);
-}
-
-.product-anvil .product-figure,
-.product-anvil .embed,
-.product-anvil .embed-steel {
-  height: 100%;
-  min-height: 0;
-}
-
-.product-anvil .embed-img {
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-  aspect-ratio: auto;
-  object-fit: cover;
-  object-position: 42% 64%;
 }
 
 .product-ave {
@@ -618,8 +572,7 @@ body {
 }
 
 .product-anvil .product-copy > p:last-child {
-  color: var(--steel-muted);
-  max-width: none;
+  max-width: 36ch;
 }
 
 .product-ave .product-copy > p:last-child {
@@ -629,6 +582,7 @@ body {
 .product-figure {
   position: relative;
   min-height: 100%;
+  min-width: 0;
 }
 
 .title-block {
@@ -702,8 +656,8 @@ a:focus-visible,
     width: min(100%, 22rem);
   }
 
-  .product-anvil .product-copy {
-    width: min(38rem, 52%);
+  .product-anvil {
+    grid-template-columns: minmax(14rem, 1fr) minmax(0, 1fr);
   }
 
   .product-ave .product-copy {
@@ -754,29 +708,13 @@ a:focus-visible,
     max-width: 100%;
   }
 
-  .product-anvil .product-copy {
-    order: 0;
-    width: 100%;
-    justify-self: stretch;
-    background: linear-gradient(
-      180deg,
-      var(--steel) 0%,
-      rgba(36, 29, 23, 0.94) 42%,
-      rgba(36, 29, 23, 0.2) 78%,
-      transparent 100%
-    );
-    padding: clamp(1.25rem, 4vh, 2rem) calc(var(--pad-x) + 0.15rem);
+  .product-anvil .product-figure {
+    order: -1;
   }
 
-  .product-anvil {
-    aspect-ratio: 4 / 5;
-  }
-
-  .product-anvil,
-  .product-anvil .product-figure,
-  .product-anvil .embed,
   .product-anvil .embed-img {
-    min-height: 0;
+    max-height: min(22rem, 52vh);
+    margin-inline: auto;
   }
 
   .sight-wrap {
@@ -819,9 +757,19 @@ a:focus-visible,
     padding: 1.15rem calc(var(--pad-x) + 0.15rem) 0.35rem;
   }
 
+  .product-ave .product-figure,
+  .product-ave .embed,
+  .product-ave .embed-img {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
   .product-ave .embed-img {
     min-height: 0;
-    max-height: min(22rem, 58vh);
+    max-height: none;
+    object-fit: contain;
+    object-position: center;
   }
 
   .note {
@@ -904,8 +852,8 @@ a:focus-visible,
     padding-block: 0.55rem;
   }
 
-  .product-anvil {
-    aspect-ratio: 16 / 8;
+  .product-anvil .embed-img {
+    max-height: 58vh;
   }
 
   .product-ave .embed-img {
