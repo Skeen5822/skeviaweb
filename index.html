@@ -3,13 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Skevia Software — ANVIL &amp; AVE</title>
+    <title>Skevia Software</title>
     <meta
       name="description"
-      content="Skevia Software LLC builds ANVIL, a bare-metal AI inference engine, and AVE, adaptive visual expansion technology."
+      content="Skevia Software LLC builds systems and software for machines that need to think and see clearly."
     />
-    <meta name="theme-color" content="#1a1510" />
-    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#14120f" />
+    <link rel="icon" href="favicon.png?v=2" type="image/png" sizes="64x64" />
+    <link rel="apple-touch-icon" href="favicon.png?v=2" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,6 +23,7 @@
     <a class="skip" href="#content">Skip to content</a>
 
     <div class="sheet">
+      <div class="scan" aria-hidden="true"></div>
       <div class="drawing-frame" aria-hidden="true">
         <span class="reg tl"></span>
         <span class="reg tr"></span>
@@ -33,141 +35,101 @@
       </div>
 
       <header class="mast">
-        <p class="mast-co">Skevia Software LLC</p>
-        <nav class="mast-nav" aria-label="Products">
-          <a href="#anvil"><span>Fig. 01</span> ANVIL</a>
-          <a href="#ave"><span>Fig. 02</span> AVE</a>
-        </nav>
-        <p class="mast-dwg">DWG <span>SKV-SYS-001</span></p>
+        <p class="mast-co">
+          <span class="led led-amber" aria-hidden="true"></span>
+          Skevia Software LLC
+        </p>
+        <p class="mast-dwg">
+          <span class="led led-green" aria-hidden="true"></span>
+          DWG <span>SKV-SYS-001</span>
+        </p>
       </header>
 
       <main id="content">
         <section class="hero" aria-label="Skevia Software">
-          <div class="hero-copy">
-            <p class="note">
-              Note 01 — Bare-metal inference. Adaptive visual expansion.
-            </p>
-            <h1>
-              <span class="brand">Skevia</span>
-              <span class="tag">A simple software company</span>
-            </h1>
-            <p class="lede">
-              Building systems and software for machines that need to
-              think and see clearly.
-            </p>
-            <p class="hero-dim" aria-hidden="true">
-              <span>inference</span>
-              <span class="hero-dim-span"></span>
-              <span>sight</span>
-            </p>
-          </div>
-
-          <figure class="sight-wrap">
-            <svg
-              class="mark"
-              viewBox="0 0 200 200"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <rect class="mark-plate" x="16" y="16" width="168" height="168" />
-
-              <!-- Registration ticks -->
-              <path class="mark-tick" d="M16 28h-6M28 16v-6M184 28h6M172 16v-6M16 172h-6M28 184v6M184 172h6M172 184v6" />
-
-              <!-- Compass construction -->
-              <g class="mark-construct">
-                <line x1="16" y1="70" x2="184" y2="70" />
-                <line x1="16" y1="100" x2="184" y2="100" />
-                <line x1="16" y1="130" x2="184" y2="130" />
-                <line x1="74" y1="16" x2="74" y2="184" />
-                <line x1="126" y1="16" x2="126" y2="184" />
-                <circle cx="74" cy="70" r="30" />
-                <circle cx="74" cy="130" r="30" />
-                <circle cx="126" cy="70" r="30" />
-                <circle cx="126" cy="130" r="30" />
-              </g>
-
-              <!-- Compass prick marks -->
-              <g class="mark-prick">
-                <path d="M71 70h6M74 67v6M123 70h6M126 67v6M71 130h6M74 127v6M123 130h6M126 127v6" />
-              </g>
-
-              <!-- Two S, compass-struck from four centers -->
-              <path
-                class="mark-s"
-                d="M74 40A30 30 0 0 0 74 100A30 30 0 0 1 74 160"
-              />
-              <path
-                class="mark-s"
-                d="M126 40A30 30 0 0 0 126 100A30 30 0 0 1 126 160"
-              />
-
-              <!-- Span -->
-              <g class="mark-dim">
-                <path d="M44 174h112" />
-                <path d="M44 171v6M156 171v6" />
-              </g>
-            </svg>
-            <figcaption>
-              Fig. 00 — The mark. Two S for Skevia Software, struck from four
-              centers.
-            </figcaption>
-          </figure>
+          <div class="graticule" aria-hidden="true"></div>
+          <p class="note">
+            Note 01 — Workshop sheet. Plotted full scale.
+          </p>
+          <h1>
+            <span class="brand">
+              <span class="brand-line">
+                <span class="outline" aria-hidden="true">Skevia</span>
+                <span class="fill">Skevia</span>
+              </span>
+              <span class="brand-line">
+                <span class="outline" aria-hidden="true">Software</span>
+                <span class="fill">Software</span>
+              </span>
+            </span>
+            <span class="tag">A simple software company</span>
+          </h1>
+          <p class="lede">
+            Building systems and software for machines that need to
+            think and see clearly.
+          </p>
         </section>
 
-        <section class="product product-anvil" id="anvil">
-          <figure class="product-figure">
-            <div class="embed embed-sheet">
-              <img
-                class="embed-img"
-                src="fig-01.png"
-                width="970"
-                height="787"
-                alt="Ink drawing of a compact London-pattern anvil with heat-blue on the horn."
-                decoding="async"
-              />
-            </div>
-          </figure>
-          <div class="product-copy">
-            <p class="product-fig">Fig. 01</p>
-            <h3 class="product-name">ANVIL</h3>
-            <p class="product-expand">
-              Adaptive Neural Vectorized Inference Loader
+        <section class="catalog" aria-label="Products">
+          <article class="product product-anvil" id="ch-1">
+            <p class="product-fig"><span>CH-1</span> Fig. 01</p>
+            <h2 class="product-name">
+              <span class="outline" aria-hidden="true">ANVIL</span>
+              <span class="fill">ANVIL</span>
+            </h2>
+            <p class="product-price">
+              <span class="product-price-label">List</span>
+              <span class="product-price-value">$149.99</span>
+              <span class="product-price-unit">USD</span>
             </p>
-            <p>
-              An AI inference engine built to run neural workloads with nearly any RAM. 
-              ANVIL is designed for any environment where every CPU cycle
-              counts.
-            </p>
-          </div>
-        </section>
+            <ul class="product-notes">
+              <li>
+                <span>01</span>
+                Loads neural workloads on a lean memory budget. Nearly any RAM
+                is still in play.
+              </li>
+              <li>
+                <span>02</span>
+                Built for machines that cannot waste a cycle—and will not wait
+                on a cloud round-trip.
+              </li>
+              <li>
+                <span>03</span>
+                No cluster to provision. No accelerator shopping list. A
+                license, then inference on the iron in front of you.
+              </li>
+            </ul>
+          </article>
 
-        <section class="product product-ave" id="ave">
-          <figure class="product-figure">
-            <div class="embed embed-sheet">
-              <img
-                class="embed-img"
-                src="fig-02.png"
-                width="1280"
-                height="720"
-                alt="Ink drawing of a wide looking-glass reflecting the anvil from Fig. 01, standing upright."
-                decoding="async"
-              />
-            </div>
-          </figure>
-          <div class="product-copy">
-            <p class="product-fig">Fig. 02</p>
-            <h3 class="product-name">AVE</h3>
-            <p class="product-expand">Adaptive Visual Expansion</p>
-            <p>
-              A new upscaling technology inspired by the Taylor series
-              expansion that expands visual detail with adaptive reconstruction—
-              sharpening resolution without the usual
-              plastic look. AVE treats expansion as a controlled optical
-              process, not a blunt resize.
+          <article class="product product-ave" id="ch-2">
+            <p class="product-fig"><span>CH-2</span> Fig. 02</p>
+            <h2 class="product-name">
+              <span class="outline" aria-hidden="true">AVE</span>
+              <span class="fill">AVE</span>
+            </h2>
+            <p class="product-price">
+              <span class="product-price-label">List</span>
+              <span class="product-price-value">$99.99</span>
+              <span class="product-price-unit">USD</span>
             </p>
-          </div>
+            <ul class="product-notes">
+              <li>
+                <span>01</span>
+                Sharpens resolution with adaptive reconstruction instead of
+                stretching pixels until they shine.
+              </li>
+              <li>
+                <span>02</span>
+                Detail that still looks like light hitting a sensor—not a
+                filter sitting on top of the picture.
+              </li>
+              <li>
+                <span>03</span>
+                Works through the camera, card, and display already in the
+                chain. More image. Same glass.
+              </li>
+            </ul>
+          </article>
         </section>
       </main>
 
@@ -178,7 +140,7 @@
         </div>
         <div class="tb-cell tb-title">
           <p class="tb-label">Title</p>
-          <p>Systems sheet — ANVIL / AVE</p>
+          <p>Systems sheet</p>
         </div>
         <div class="tb-cell">
           <p class="tb-label">Dwg no.</p>
