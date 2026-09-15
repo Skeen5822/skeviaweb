@@ -379,22 +379,9 @@ body {
   color: var(--crimson);
 }
 
-.tag {
-  display: block;
-  margin-top: 1.05rem;
-  font-family: var(--font-body);
-  font-style: italic;
-  font-weight: 400;
-  font-size: clamp(1.45rem, 1.15rem + 1vw, 2.35rem);
-  line-height: 1.2;
-  letter-spacing: -0.015em;
-  text-transform: none;
-  color: var(--ink);
-}
-
 .lede {
   position: relative;
-  margin: 1.15rem 0 0;
+  margin: 1.35rem 0 0;
   max-width: min(46ch, 100%);
   color: var(--ink-soft);
   font-size: clamp(1.1rem, 1.02rem + 0.35vw, 1.45rem);
