@@ -241,7 +241,7 @@ body {
   border-bottom: 3px solid var(--ink);
   box-shadow: 0 3px 0 var(--sheet), 0 5px 0 var(--ink);
   font-family: var(--font-mono);
-  font-size: clamp(0.68rem, 0.62rem + 0.2vw, 0.78rem);
+  font-size: clamp(0.72rem, 0.66rem + 0.2vw, 0.82rem);
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -302,7 +302,7 @@ body {
 .hero {
   position: relative;
   z-index: 1;
-  padding: clamp(1.1rem, 3vh, 2.25rem) 0 clamp(1.35rem, 3.2vh, 2.4rem);
+  padding: clamp(0.85rem, 2.2vh, 1.7rem) 0 clamp(0.55rem, 1.4vh, 1.2rem);
 }
 
 .graticule {
@@ -388,6 +388,26 @@ body {
   overflow-wrap: break-word;
 }
 
+.hero-stamp {
+  position: absolute;
+  right: 0;
+  top: 38%;
+  margin: 0;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  line-height: 1.75;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0.4;
+}
+
+.hero-stamp p {
+  margin: 0;
+}
+
 .catalog {
   position: relative;
   z-index: 1;
@@ -414,7 +434,7 @@ body {
 .product-fig {
   margin: 0 0 0.45rem;
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.84rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-soft);
@@ -448,13 +468,21 @@ body {
   color: var(--ave);
 }
 
+.product-issue {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 0.55rem;
+  margin: 0.85rem 0 0;
+}
+
 .product-price {
   display: flex;
   align-items: baseline;
   gap: 0.55rem;
   width: max-content;
   max-width: 100%;
-  margin: 0.85rem 0 0;
+  margin: 0;
   padding: 0.22rem 0.55rem 0.18rem;
   border: 2px solid var(--ink);
   background: var(--sheet-2);
@@ -480,6 +508,43 @@ body {
   white-space: nowrap;
 }
 
+.product-buy {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0.22rem 0.75rem 0.18rem;
+  border: 2px solid var(--ink);
+  border-radius: 0;
+  background: var(--ink);
+  color: var(--sheet);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background-color 120ms linear,
+    border-color 120ms linear,
+    color 120ms linear;
+}
+
+.product-anvil .product-buy:hover,
+.product-anvil .product-buy:focus-visible {
+  background: var(--anvil);
+  border-color: var(--anvil);
+  color: var(--sheet);
+}
+
+.product-ave .product-buy:hover,
+.product-ave .product-buy:focus-visible {
+  background: var(--ave);
+  border-color: var(--ave);
+  color: var(--sheet);
+}
+
 .product-notes {
   list-style: none;
   margin: 1rem 0 0;
@@ -496,8 +561,8 @@ body {
   align-items: start;
   margin: 0;
   color: var(--ink);
-  font-size: clamp(0.98rem, 0.92rem + 0.22vw, 1.12rem);
-  line-height: 1.4;
+  font-size: clamp(1.05rem, 0.98rem + 0.28vw, 1.22rem);
+  line-height: 1.5;
   overflow-wrap: break-word;
 }
 
@@ -508,12 +573,12 @@ body {
 
 .product-notes li span {
   display: inline-block;
-  margin-top: 0.12rem;
+  margin-top: 0.18rem;
   padding: 0.06rem 0.32rem 0.02rem;
   border: 2px solid var(--ink);
   background: var(--sheet-2);
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.66rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   line-height: 1.2;
@@ -529,7 +594,7 @@ body {
   border: 3px solid var(--ink);
   background: var(--sheet-2);
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.84rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -547,7 +612,7 @@ body {
 .tb-label {
   margin: 0 0 0.2rem;
   color: var(--ink-soft);
-  font-size: 0.58rem;
+  font-size: 0.64rem;
   letter-spacing: 0.12em;
 }
 
@@ -578,10 +643,15 @@ body {
   .led-amber {
     animation: none;
   }
+
+  .product-buy {
+    transition: none;
+  }
 }
 
 a:focus-visible,
-.skip:focus-visible {
+.skip:focus-visible,
+.product-buy:focus-visible {
   outline: 2px solid var(--crimson);
   outline-offset: 3px;
 }
@@ -634,9 +704,13 @@ a:focus-visible,
     border-top: 3px solid var(--ink);
   }
 
+  .hero-stamp {
+    display: none;
+  }
+
   .note {
     letter-spacing: 0.04em;
-    font-size: 0.72rem;
+    font-size: 0.78rem;
     overflow-wrap: anywhere;
   }
 
