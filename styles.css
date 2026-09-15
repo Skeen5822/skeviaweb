@@ -514,6 +514,11 @@ body {
   overflow-wrap: break-word;
 }
 
+.product-notes li p {
+  margin: 0;
+  min-width: 0;
+}
+
 .product-notes li span {
   display: inline-block;
   margin-top: 0.12rem;
