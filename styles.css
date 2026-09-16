@@ -7,14 +7,14 @@
   --ink-soft: #5a5146;
   --rule: rgba(12, 11, 9, 0.28);
   --rule-hard: rgba(12, 11, 9, 0.72);
-  --crimson: #8f1c32;
-  --anvil: #1b3c78;
-  --ave: #4c1b6c;
-  --ember: #8f1c32;
+  --crimson: #941f35;
+  --anvil: #173e72;
+  --ave: #31533d;
+  --ember: #941f35;
   --ember-deep: #6e1526;
   --heat: #6e1526;
-  --heat-hot: #8f1c32;
-  --lens: #4c1b6c;
+  --heat-hot: #941f35;
+  --lens: #31533d;
   --brass: #b07a28;
   --phosphor: #2f9a4a;
   --amber-led: #ffb03a;
@@ -68,8 +68,8 @@ body {
       rgba(0, 0, 0, 0.28) 0 2px,
       transparent 2px 18px
     ),
-    radial-gradient(ellipse at 12% 0%, rgba(143, 28, 50, 0.22), transparent 42%),
-    radial-gradient(ellipse at 88% 100%, rgba(76, 27, 108, 0.18), transparent 46%),
+    radial-gradient(ellipse at 12% 0%, rgba(148, 31, 53, 0.22), transparent 42%),
+    radial-gradient(ellipse at 88% 100%, rgba(49, 83, 61, 0.18), transparent 46%),
     linear-gradient(180deg, #2a241c 0%, var(--bench) 38%, var(--bench-edge) 100%);
 }
 
@@ -382,7 +382,7 @@ main {
   top: 0;
   z-index: 0;
   color: var(--ink);
-  -webkit-text-stroke: clamp(2px, 0.3vw, 4px) var(--ink);
+  -webkit-text-stroke: clamp(3px, 0.4vw, 5px) var(--ink);
   pointer-events: none;
   user-select: none;
 }
