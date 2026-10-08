@@ -1,4 +1,4 @@
-Website for **Skevia Software LLC**
+Website for **Skevia**
 
 ## Run locally
 

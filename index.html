@@ -3,201 +3,113 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Skevia Software</title>
+    <title>Skevia</title>
     <meta
       name="description"
-      content="Skevia Software LLC builds systems & software for the abandoned computers."
+      content="Skevia builds systems and software for the abandoned computers."
     />
-    <meta name="theme-color" content="#14120f" />
-    <link rel="icon" href="favicon.png?v=3" type="image/png" sizes="64x64" />
-    <link rel="apple-touch-icon" href="logo.png" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" href="favicon.png" type="image/png" sizes="64x64" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Neucha&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=plot19" />
+    <link rel="stylesheet" href="styles.css?v=fit4" />
   </head>
   <body>
     <a class="skip" href="#content">Skip to content</a>
 
-    <div class="sheet">
-      <div class="scan" aria-hidden="true"></div>
-      <div class="drawing-frame" aria-hidden="true">
-        <span class="reg tl"></span>
-        <span class="reg tr"></span>
-        <span class="reg bl"></span>
-        <span class="reg br"></span>
-        <div class="edge-scale">
-          <span class="edge-scale-major"></span>
-        </div>
+    <header class="nav">
+      <div class="nav-inner">
+        <a class="brand" href="#" aria-label="Skevia">
+          <img src="img/mark.png" alt="" width="573" height="689" />
+          <span aria-hidden="true">KEVIA</span>
+        </a>
+        <nav aria-label="Products">
+          <a href="#anvil">Anvil</a>
+          <a href="#ave">Ave</a>
+        </nav>
       </div>
+    </header>
 
-      <header class="mast">
-        <p class="mast-co">
-          <span class="led led-amber" aria-hidden="true"></span>
-          Skevia Software LLC
-        </p>
-        <p class="mast-dwg">
-          <span class="led led-green" aria-hidden="true"></span>
-          DWG <span>SKV-SYS-001</span>
-        </p>
-      </header>
+    <main id="content">
+      <section class="hero">
+        <h1 class="lockup" aria-label="Skevia">
+          <img src="img/mark.png" alt="" width="573" height="689" />
+          <span aria-hidden="true">KEVIA</span>
+        </h1>
+        <p>Building systems &amp; software for the abandoned computers.</p>
+        <div class="links">
+          <a class="btn" href="#anvil">Explore Anvil</a>
+          <a class="link" href="#ave">Explore Ave &rsaquo;</a>
+        </div>
+        <a class="scroll-cue" href="#anvil" aria-label="Scroll to products"></a>
+      </section>
 
-      <main id="content">
-        <section class="hero" aria-label="Skevia Software">
-          <div class="graticule" aria-hidden="true"></div>
-          <p class="note">
-            Note 01 — Workshop sheet. Plotted full scale.
-          </p>
-          <h1>
-            <span class="brand">
-              <span class="brand-line">
-                <span class="outline" aria-hidden="true">Skevia</span>
-                <span class="fill">Skevia</span>
-              </span>
-              <span class="brand-line">
-                <span class="outline" aria-hidden="true">Software</span>
-                <span class="fill">Software</span>
-              </span>
-            </span>
-          </h1>
-          <p class="lede">
-            Building systems &amp; software for the abandoned computers.
-          </p>
-        </section>
+      <section class="product" id="anvil">
+        <p class="eyebrow">Local AI runtime</p>
+        <h2>Anvil</h2>
+        <p class="tagline">Neural workloads on the hardware you already own.</p>
+        <ul class="features">
+          <li>
+            <h3>Lean memory</h3>
+            <p>Loads neural workloads on a lean memory budget. Nearly any RAM is used.</p>
+          </li>
+          <li>
+            <h3>Offline first</h3>
+            <p>Built for machines that cannot waste a cycle, and will not wait for your internet connection.</p>
+          </li>
+          <li>
+            <h3>No cluster</h3>
+            <p>One stick. One dream. If it still boots, Anvil has a place to stand.</p>
+          </li>
+          <li>
+            <h3>Yours to keep</h3>
+            <p>Weights stay on the disk you already own. No token, no login, no queue on the far end of a wire.</p>
+          </li>
+        </ul>
+        <div class="buy">
+          <p class="price">$179.99</p>
+          <p class="soon">Coming soon</p>
+        </div>
+      </section>
 
-        <section class="catalog" aria-label="Products">
-          <article class="product product-anvil" id="ch-1">
-            <p class="product-fig"><span>CH-1</span> Fig. 01</p>
-            <h2 class="product-name">
-              <span class="outline" aria-hidden="true">ANVIL</span>
-              <span class="fill">ANVIL</span>
-            </h2>
-            <div class="product-issue">
-              <p class="product-price">
-                <span class="product-price-label">List</span>
-                <span class="product-price-value">$179<span class="product-price-dot">.</span>99</span>
-                <span class="product-price-unit">USD</span>
-              </p>
-              <button type="button" class="product-buy">Buy now</button>
-            </div>
-            <ul class="product-notes">
-              <li>
-                <span>01</span>
-                <p>
-                  Loads neural workloads on a lean memory budget. Nearly any RAM
-                  is used.
-                </p>
-              </li>
-              <li>
-                <span>02</span>
-                <p>
-                  Built for machines that cannot waste a cycle—and will not wait
-                  for your internet connection.
-                </p>
-              </li>
-              <li>
-                <span>03</span>
-                <p>
-                  No cluster needed. One Stick. One Dream. If it still boots,
-                  Anvil has a place to stand.
-                </p>
-              </li>
-              <li>
-                <span>04</span>
-                <p>
-                  Weights stay on the disk you already own. No token, no login,
-                  no queue on the far end of a wire.
-                </p>
-              </li>
-            </ul>
-          </article>
+      <section class="product alt" id="ave">
+        <p class="eyebrow">Image reconstruction</p>
+        <h2>Ave</h2>
+        <p class="tagline">Real detail. Real math. No guessing.</p>
+        <ul class="features">
+          <li>
+            <h3>Adaptive</h3>
+            <p>Sharpens resolution with adaptive reconstruction instead of lousy AI hacks.</p>
+          </li>
+          <li>
+            <h3>Natural</h3>
+            <p>Detail that still looks like light hitting a sensor, not a filter sitting on top of the picture.</p>
+          </li>
+          <li>
+            <h3>No new hardware</h3>
+            <p>Works with your device. Edges come forward, and grain stays grain.</p>
+          </li>
+          <li>
+            <h3>Explainable</h3>
+            <p>Sample, weigh, write the pixel back. The math ships with the program.</p>
+          </li>
+        </ul>
+        <div class="buy">
+          <p class="price">$129.99</p>
+          <p class="soon">Coming soon</p>
+        </div>
+      </section>
+    </main>
 
-          <article class="product product-ave" id="ch-2">
-            <p class="product-fig"><span>CH-2</span> Fig. 02</p>
-            <h2 class="product-name">
-              <span class="outline" aria-hidden="true">AVE</span>
-              <span class="fill">AVE</span>
-            </h2>
-            <div class="product-issue">
-              <p class="product-price">
-                <span class="product-price-label">List</span>
-                <span class="product-price-value">$129<span class="product-price-dot">.</span>99</span>
-                <span class="product-price-unit">USD</span>
-              </p>
-              <button type="button" class="product-buy">Buy now</button>
-            </div>
-            <ul class="product-notes">
-              <li>
-                <span>01</span>
-                <p>
-                  Sharpens resolution with adaptive reconstruction instead of
-                  lousy AI hacks.
-                </p>
-              </li>
-              <li>
-                <span>02</span>
-                <p>
-                  Pure mathematical detail that still looks like light hitting a
-                  sensor—not a filter sitting on top of the picture.
-                </p>
-              </li>
-              <li>
-                <span>03</span>
-                <p>
-                  Works with your device. No new hardware needed. Edges come
-                  forward, and grain stays grain.
-                </p>
-              </li>
-              <li>
-                <span>04</span>
-                <p>
-                  A reconstruction you can explain: sample, weigh, write the
-                  pixel back. The math ships with the program.
-                </p>
-              </li>
-            </ul>
-          </article>
-        </section>
-      </main>
+    <footer class="footer">
+      <p>© <span data-year>2026</span> Skevia. All rights reserved.</p>
+    </footer>
 
-      <footer class="title-block">
-        <div class="tb-cell tb-co">
-          <p class="tb-label">Drawn by</p>
-          <p>Skevia Software LLC</p>
-        </div>
-        <div class="tb-cell tb-title">
-          <p class="tb-label">Title</p>
-          <p>Systems sheet</p>
-        </div>
-        <div class="tb-cell">
-          <p class="tb-label">Dwg no.</p>
-          <p>SKV-SYS-001</p>
-        </div>
-        <div class="tb-cell">
-          <p class="tb-label">Scale</p>
-          <p>1 : 1</p>
-        </div>
-        <div class="tb-cell">
-          <p class="tb-label">Sheet</p>
-          <p>1 / 1</p>
-        </div>
-        <div class="tb-cell">
-          <p class="tb-label">Rev</p>
-          <p>A</p>
-        </div>
-        <div class="tb-cell">
-          <p class="tb-label">Plotted</p>
-          <p data-plotted></p>
-        </div>
-        <p class="tb-legal">
-          © <span data-year></span> Skevia Software LLC. All rights reserved.
-        </p>
-      </footer>
-    </div>
-
-    <script src="script.js?v=plot3"></script>
+    <script src="script.js?v=fit4"></script>
   </body>
 </html>
