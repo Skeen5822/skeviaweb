@@ -149,17 +149,21 @@ a {
   pointer-events: none;
   background:
     linear-gradient(101deg, transparent 0 8%, var(--stripe) 8% 10%, transparent 10% 22%, var(--stripe) 22% 30%, transparent 30% 41%, var(--stripe) 41% 42.5%, transparent 42.5% 58%, var(--stripe) 58% 63%, transparent 63% 74%, var(--stripe) 74% 75.5%, transparent 75.5% 86%, var(--stripe) 86% 92%, transparent 92%);
+  opacity: var(--stripe-opacity);
+  mask-composite: intersect;
+  animation: fade-in 2.4s ease 0.2s backwards;
 }
 
 .hero::before {
+  --stripe-opacity: 0.8;
   left: -6%;
-  opacity: 0.8;
-  mask-image: linear-gradient(90deg, #000 40%, transparent);
+  mask-image: linear-gradient(90deg, #000 40%, transparent), linear-gradient(#000 58%, transparent 92%);
 }
 
 .hero::after {
+  --stripe-opacity: 1;
   right: -6%;
-  mask-image: linear-gradient(270deg, #000 50%, transparent);
+  mask-image: linear-gradient(270deg, #000 50%, transparent), linear-gradient(#000 58%, transparent 92%);
 }
 
 .hero > * {
@@ -167,33 +171,125 @@ a {
   z-index: 1;
 }
 
-.lockup {
-  justify-content: center;
+.hero > .ripple {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  mask-image: linear-gradient(#000 60%, transparent);
+}
+
+.hero.rippling > .ripple {
+  display: block;
+  animation: fade-in 2.4s ease 0.2s backwards;
+}
+
+.hero.rippling::before,
+.hero.rippling::after {
+  visibility: hidden;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .lockup {
   --size: clamp(40px, min(12vw, 15vh), 320px);
+  position: relative;
+  justify-content: center;
+}
+
+.lockup::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -80% -30%;
+  background: radial-gradient(closest-side, rgba(15, 153, 14, 0.14), transparent);
+  pointer-events: none;
+  animation: halo 3s ease-out 0.3s backwards;
 }
 
 .lockup img {
   width: auto;
   height: calc(var(--size) * 1.08);
+  animation:
+    materialize 1.6s cubic-bezier(0.2, 0.7, 0.1, 1) 0.1s backwards,
+    glint 1s ease-in-out 1.9s;
 }
 
-.lockup span {
+.lockup > span {
   margin-left: calc(var(--size) * 0.14);
   font-size: var(--size);
   letter-spacing: 0.12em;
   line-height: 1;
 }
 
-.hero > p {
+.lockup .char {
+  display: inline-block;
+  animation:
+    materialize 1.4s cubic-bezier(0.2, 0.7, 0.1, 1) backwards,
+    glint 1s ease-in-out;
+  animation-delay: calc(0.35s + var(--i) * 0.09s), calc(2s + var(--i) * 0.08s);
+}
+
+@keyframes materialize {
+  0% {
+    opacity: 0;
+    filter: blur(calc(var(--size) * 0.12)) brightness(2.6);
+    transform: scale(1.25);
+  }
+  50% {
+    opacity: 1;
+    filter: blur(calc(var(--size) * 0.015)) brightness(1.7);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0) brightness(1);
+    transform: none;
+  }
+}
+
+@keyframes glint {
+  50% {
+    filter: brightness(1.8) drop-shadow(0 0 calc(var(--size) * 0.12) rgba(23, 184, 22, 0.7));
+  }
+}
+
+@keyframes halo {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+    filter: blur(8px);
+  }
+}
+
+.hero-content > p {
   max-width: 32em;
   margin: clamp(18px, 3.5vh, 36px) auto 0;
   color: var(--muted);
   font-size: clamp(18px, min(2.4vw, 3.6vh), 54px);
   font-weight: 400;
   line-height: 1.3;
+  animation: rise 1.2s cubic-bezier(0.2, 0.7, 0.1, 1) 1.2s backwards;
 }
 
 .scroll-cue {
@@ -206,18 +302,14 @@ a {
   border-bottom: 2px solid var(--green);
   transform: translateX(-50%) rotate(45deg);
   opacity: 0.7;
-  animation: cue 2s ease-in-out infinite;
+  animation:
+    fade-in 1s ease 2.2s backwards,
+    cue 2s ease-in-out 2.2s infinite;
 }
 
 @keyframes cue {
   50% {
     transform: translate(-50%, 6px) rotate(45deg);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .scroll-cue {
-    animation: none;
   }
 }
 
@@ -228,6 +320,7 @@ a {
   justify-content: center;
   gap: 28px;
   margin-top: clamp(24px, 5vh, 48px);
+  animation: rise 1.2s cubic-bezier(0.2, 0.7, 0.1, 1) 1.4s backwards;
 }
 
 .btn {
@@ -264,16 +357,39 @@ a {
   text-decoration: underline;
 }
 
+main {
+  overflow-x: clip;
+}
+
 .product {
+  --glow: clamp(700px, 55vw, 1800px);
+  position: relative;
+  isolation: isolate;
   padding: 120px 22px;
   text-align: center;
-  background: var(--bg);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
   scroll-margin-top: 52px;
 }
 
+.product::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: calc(var(--glow) * -0.32);
+  left: 0;
+  right: 0;
+  height: var(--glow);
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 60% 45% at 50% 50%,
+    rgba(15, 153, 14, 0.13),
+    rgba(15, 153, 14, 0.05) 45%,
+    rgba(15, 153, 14, 0.015) 75%,
+    transparent
+  );
+}
+
 .product.alt {
-  background: var(--alt);
+  background: linear-gradient(180deg, transparent, var(--alt) 20%, var(--alt) 80%, transparent);
 }
 
 .eyebrow {
@@ -321,6 +437,16 @@ a {
   border-top: 2px solid var(--green);
   border-radius: 14px;
   background: var(--card);
+  transition:
+    translate 0.5s cubic-bezier(0.2, 0.7, 0.1, 1),
+    box-shadow 0.5s ease;
+}
+
+@media (hover: hover) {
+  .features li:hover {
+    translate: 0 -6px;
+    box-shadow: 0 24px 60px -30px rgba(23, 184, 22, 0.45);
+  }
 }
 
 .features h3 {
@@ -367,9 +493,74 @@ a {
   justify-content: center;
   gap: 12px;
   padding: 28px 22px 36px;
-  border-top: 1px solid var(--line);
+  background: linear-gradient(90deg, transparent, var(--line) 30%, var(--line) 70%, transparent) top / 100% 1px no-repeat;
   color: var(--muted);
   font-size: 12px;
+}
+
+.motion .hero-content {
+  opacity: calc(1 - var(--hp) * 1.25);
+  transform: translate3d(0, calc(var(--hp) * 22vh), 0) scale(calc(1 - var(--hp) * 0.12));
+  will-change: transform, opacity;
+}
+
+.motion .hero > .ripple {
+  opacity: calc(1 - var(--hp) * 0.7);
+}
+
+.motion .scroll-cue {
+  opacity: calc(0.7 - var(--hp) * 5);
+}
+
+.motion .brand {
+  opacity: var(--nav, 0);
+  transform: translate3d(0, calc((1 - var(--nav, 0)) * 8px), 0);
+}
+
+.motion .brand:focus-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.motion .product::before {
+  opacity: var(--p);
+  transform: translate3d(0, calc((1 - var(--p)) * 12%), 0) scale(calc(0.8 + var(--p) * 0.2));
+}
+
+.motion .product h2 {
+  opacity: var(--p);
+  transform: scale(calc(0.86 + var(--p) * 0.14));
+  text-shadow: 0 0 calc(var(--p) * 0.5em) rgba(23, 184, 22, calc(var(--p) * 0.35));
+}
+
+.motion .product h2 .char {
+  display: inline-block;
+  transform: translate3d(calc((var(--i) - (var(--n) - 1) / 2) * (1 - var(--p)) * 0.45em), 0, 0);
+}
+
+.motion .reveal {
+  opacity: var(--p);
+  transform: translate3d(0, calc((1 - var(--p)) * 40px), 0);
+}
+
+.motion .features li {
+  opacity: var(--p);
+  transform: perspective(1200px) translate3d(0, calc((1 - var(--p)) * 90px), 0) rotateX(calc((1 - var(--p)) * 16deg)) scale(calc(0.92 + var(--p) * 0.08));
+  transform-origin: 50% 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before,
+  .hero::after,
+  .hero.rippling > .ripple,
+  .lockup::before,
+  .lockup img,
+  .lockup .char,
+  .hero-content > p,
+  .links,
+  .scroll-cue {
+    animation: none;
+  }
 }
 
 @media (max-width: 1000px) {
@@ -381,8 +572,8 @@ a {
 @media (max-width: 900px) {
   .hero::before,
   .hero::after {
+    --stripe-opacity: 0.6;
     width: 46%;
-    opacity: 0.6;
   }
 }
 
