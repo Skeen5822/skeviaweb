@@ -37,7 +37,16 @@ def build_site():
         public_path = "index.html" if relative_path == "Website/index.html" else relative_path
         destination = output_directory / public_path
         destination.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(repository_root / relative_path, destination)
+        source = repository_root / relative_path
+        if relative_path == "Website/index.html":
+            content = source.read_bytes()
+            if content.startswith(b"---\n"):
+                front_matter, separator, content = content[4:].partition(b"\n---\n")
+                if not separator:
+                    raise ValueError("Homepage front matter is missing its closing delimiter.")
+            destination.write_bytes(content)
+        else:
+            shutil.copyfile(source, destination)
 
     print(f"Built {len(public_files)} public files in Website/build/.")
 
