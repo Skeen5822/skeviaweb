@@ -22,3 +22,8 @@ id_ed25519.*
 *.sqlite3
 .secret-audit/
 .DS_Store
+
+# Generated public site and Python caches.
+/Website/build/
+__pycache__/
+*.pyc
